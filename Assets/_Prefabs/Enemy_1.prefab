@@ -89,7 +89,6 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 10
-  score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 0.5
   originalColors: []
@@ -97,6 +96,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  score: 150
   waveFrequency: 2
   waveWidth: 4
   waveRotY: 45

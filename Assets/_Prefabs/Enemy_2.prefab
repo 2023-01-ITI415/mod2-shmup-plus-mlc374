@@ -104,7 +104,6 @@ MonoBehaviour:
   speed: 10
   fireRate: 0.3
   health: 10
-  score: 100
   showDamageDuration: 0.1
   powerUpDropChance: 0.75
   originalColors: []
@@ -112,6 +111,7 @@ MonoBehaviour:
   showingDamage: 0
   damageDoneTime: 0
   notifiedOfDestruction: 0
+  score: 200
   sinEccentricity: 0.6
   lifeTime: 10
   rotCurve:

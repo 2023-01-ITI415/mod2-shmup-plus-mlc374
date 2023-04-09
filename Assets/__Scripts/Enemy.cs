@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
     public float speed = 10f; // The speed in m/s
     public float fireRate = 0.3f; // Seconds/shot (Unused)
     public float health = 10;
-    public int score = 100; // Points earned for destroying this
+    public int score = 100; // Points earned for destroying this    
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f; // Chance to drop a power-up
 
@@ -23,6 +23,12 @@ public class Enemy : MonoBehaviour
 
     protected BoundsCheck bndCheck;
     protected bool calledShipDestroyed = false;
+
+    public ScoreCounter scoreCounter;
+
+    void Start(){
+        //Find a GameObject named ScoreCounter in the Scene Hierarchy
+    }
 
     // This is a property: A method that acts like a field
     public Vector3 pos
@@ -39,6 +45,9 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        //get the scorecounter (script) component of scoreGO
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
         bndCheck = GetComponent<BoundsCheck>();
         // Get materials and colors for this GameObject and its children
         materials = Utils.GetAllMaterials(gameObject);
@@ -89,6 +98,8 @@ public class Enemy : MonoBehaviour
                     if (!calledShipDestroyed)
                     {
                         calledShipDestroyed = true;
+                        //increase score
+                        scoreCounter.score += score;
                         Main.SHIP_DESTROYED(this);
                     }
                     Destroy(this.gameObject);
